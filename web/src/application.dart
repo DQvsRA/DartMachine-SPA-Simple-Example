@@ -11,30 +11,25 @@ class Application {
 
   Page _currentPage;
   PageNavigator _navigator;
-  StreamController _pipe = StreamController<String>();
 
   Application(PageNavigator navigator) {
     _navigator = navigator;
   }
 
-  Stream<String> get actions {
-    return _pipe.stream;
-  }
-
   void goToLoginPage() {
-    _navigateTo(new LoginPage(_pipe));
+    _navigateTo(new LoginPage());
   }
 
   void goToIndexPage() {
-    _navigateTo(new IndexPage(_pipe));
+    _navigateTo(new IndexPage());
   }
 
   void goToGalleryPage() {
-    _navigateTo(new GalleryPage(_pipe));
+    _navigateTo(new GalleryPage());
   }
 
   void goToSignoutPage() {
-    _navigateTo(new SignoutPage(_pipe));
+    _navigateTo(new SignoutPage());
   }
 
   void _navigateTo(Page page) {

@@ -7,7 +7,7 @@ class GalleryPage extends Page {
   ButtonElement _btnIndex;
   ButtonElement _btnExit;
 
-  GalleryPage(pipe):super(pipe) {
+  GalleryPage():super() {
     _btnIndex = ButtonElement();
     _btnExit = ButtonElement();
     dom.style.backgroundColor = "antiquewhite";

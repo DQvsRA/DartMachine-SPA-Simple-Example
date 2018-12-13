@@ -1,22 +1,22 @@
-import 'dart:async';
 import 'dart:html';
 
 abstract class Page {
 
-  DivElement dom;
-  StreamController<String> _pipe;
+  static final EVENT_ACTION = "event_action";
 
-  Page(StreamController<String> pipe) {
-    _pipe = pipe;
+  DivElement dom;
+
+  Page() {
     dom = new DivElement();
     dom.className = "page ";
   }
 
-  void dispatchAction(String action) { _pipe.add(action); }
+  void dispatchAction(String action) {
+    dom.dispatchEvent(new CustomEvent(EVENT_ACTION, detail:action));
+  }
 
   void render() { }
   void destroy() {
     dom = null;
-    _pipe = null;
   }
 }

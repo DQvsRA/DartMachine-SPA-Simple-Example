@@ -4,6 +4,7 @@ import 'package:dart_machine/dart_machine.dart';
 import 'src/application.dart';
 import 'src/machine/Actions.dart';
 import 'src/machine/States.dart';
+import 'src/pages/page.dart';
 import 'src/pages/page.navigator.dart';
 
 void main() {
@@ -41,11 +42,7 @@ void main() {
 
   pagesMachine.addAction( States.PAGE_SIGNOUT, States.PAGE_INDEX, Actions.SIGNOUT_PAGE_TIMER_EXPIRED, () => application.goToIndexPage() );
 
-  application.actions.listen((String action) async {
-      print("\n> Main: application.action: " + action);
-      pagesMachine.performAction( action );
-      print("> Main: pagesMachine.currentState: " + pagesMachine.currentState());
-  });
+  root.addEventListener(Page.EVENT_ACTION, (e) => pagesMachine.performAction((e as CustomEvent).detail));
 
   pagesMachine.performAction( Actions.INITIALIZE );
 }

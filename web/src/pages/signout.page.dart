@@ -6,7 +6,7 @@ class SignoutPage extends Page {
   Timer _timer;
   int _counter = 3;
 
-  SignoutPage(pipe):super(pipe) {
+  SignoutPage():super() {
     _timer = new Timer.periodic(Duration(seconds:1), _handleTimerTick);
     dom.style.backgroundColor = "coral";
   }

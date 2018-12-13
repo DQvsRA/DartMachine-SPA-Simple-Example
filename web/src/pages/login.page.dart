@@ -7,7 +7,7 @@ class LoginPage extends Page {
   ButtonElement _btnIndex;
   ButtonElement _btnGallery;
 
-  LoginPage(pipe):super(pipe) {
+  LoginPage():super() {
     _btnIndex = ButtonElement();
     _btnGallery = ButtonElement();
     dom.style.backgroundColor = "wheat";
